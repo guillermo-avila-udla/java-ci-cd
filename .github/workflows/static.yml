@@ -38,9 +38,11 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      # Paso 3: Compila el proyecto Java (solo chequea sintaxis y estructura)
+      # Paso 3: Compila el proyecto Java y ejecuta plugin de checkstyle
       - name: Compile Java project
-        run: mvn compile
+        run: | 
+          mvn compile
+          mvn verify
 
       # Paso 4: Ejecuta la clase Java que genera el archivo HTML
       # Este paso produce el contenido que se mostrará en GitHub Pages
