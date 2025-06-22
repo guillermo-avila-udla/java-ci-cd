@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages  # Define el entorno de despliegue para Pages
-      url: ${{ steps.deployment.outputs.pagit add ge_url }}  # Expone la URL pública como variable
+      url: ${{ steps.deployment.outputs.page_url }}  # Expone la URL pública como variable
 
     steps:
       # Paso final: despliega el artefacto a GitHub Pages
