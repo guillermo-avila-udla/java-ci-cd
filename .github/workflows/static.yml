@@ -38,16 +38,19 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      # Paso 3: Compila el proyecto Java y ejecuta plugin de checkstyle
-      - name: Compile Java project
+      # Paso 3: Compila el proyecto Java y genera el HTML.
+      #Este paso produce el contenido que se mostrará en GitHub Pages
+      - name: Compile and generate HTML
         run: | 
           mvn compile
-          mvn verify
-
-      # Paso 4: Ejecuta la clase Java que genera el archivo HTML
+          mvn exec:java -Dexec.mainClass="com.example.Main"
+          
+      # Paso 4: Corre el checkstyle y copia el reporte generado
       # Este paso produce el contenido que se mostrará en GitHub Pages
-      - name: Generate static HTML with Java
-        run: mvn exec:java -Dexec.mainClass="com.example.Main"
+      - name: Run checkstyle and copy the report
+        run: |
+          mvn checkstyle:checkstyle
+          cp target/site/checkstyle.html output/
 
       # Paso 5: Prepara GitHub Pages para recibir los archivos
       - name: Setup Pages
