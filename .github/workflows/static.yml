@@ -50,7 +50,7 @@ jobs:
       - name: Run checkstyle and copy the report
         run: |
           mvn checkstyle:checkstyle
-          cp target/site/checkstyle.html output/
+          cp -r target/site/* output/
 
       # Paso 5: Prepara GitHub Pages para recibir los archivos
       - name: Setup Pages
