@@ -20,8 +20,8 @@
         <version>3.0.0</version>
       </plugin>
       <plugin>
-        <groupid>org.apache.maven.plugins</groupid>
-        <artifactid>maven-checkstyle-plugin</artifactid>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
         <version>3.3.0</version>
         <executions>
           <execution>
@@ -31,8 +31,8 @@
               <goal>checkstyle</goal>
             </goals>
             <configuration>
-              <outputfileformat>html</outputfileformat>
-              <outputdirectory>${project.basedir}/output</outputdirectory>
+              <outputFileFormat>html</outputFileFormat>
+              <outputDirectory>${project.basedir}/output</outputDirectory>
             </configuration>
           </execution>
         </executions>
